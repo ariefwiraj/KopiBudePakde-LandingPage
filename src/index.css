@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #AC402B;
+  --color-brand-hover: #8B3322;
+  --color-brand-bgMain: #FDFBF7;
+  --color-brand-bgCard: #FFFFFF;
+  --color-brand-text: #2A1B18;
+  --color-brand-muted: #7A665D;
+  --color-brand-accent: #E88D67;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--color-brand-bgMain);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
