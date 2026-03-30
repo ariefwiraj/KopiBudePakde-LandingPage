@@ -24,14 +24,15 @@ const Navbar = () => {
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-brand-bgMain/90 backdrop-blur-md shadow-sm py-4' 
+          ? 'bg-[#AC402B] shadow-md py-4' 
           : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 max-w-6xl flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className={`text-2xl font-bold tracking-tighter ${isScrolled ? 'text-brand-text' : 'text-white'}`}>
-          KOPI<span className="text-brand-primary">BUDE</span>PAKDE
+        <a href="#" className="flex flex-col items-start font-serif font-bold text-white drop-shadow-md hover:opacity-90 transition-opacity">
+          <span className="text-xl md:text-2xl tracking-[0.15em] leading-tight">KOPI</span>
+          <span className="text-xl md:text-2xl tracking-wide leading-none">BUDE PAKDE</span>
         </a>
 
         {/* Desktop Nav */}
@@ -40,8 +41,8 @@ const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className={`text-sm font-medium transition-colors hover:text-brand-primary ${
-                isScrolled ? 'text-brand-text' : 'text-white/90 hover:text-white'
+              className={`text-sm font-medium transition-colors text-white/90 hover:text-white ${
+                isScrolled ? 'text-white' : 'text-white/90 hover:text-white'
               }`}
             >
               {link.name}
@@ -51,7 +52,7 @@ const Navbar = () => {
             href="#hero"
             className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all transform hover:-translate-y-0.5 ${
               isScrolled 
-                ? 'bg-brand-primary text-white hover:bg-brand-hover shadow-md shadow-brand-primary/20' 
+                ? 'bg-white text-brand-text hover:bg-gray-100 shadow-md' 
                 : 'bg-white text-brand-text hover:bg-gray-100 shadow-md'
             }`}
           >
@@ -61,13 +62,13 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden p-2"
+          className="md:hidden p-2 relative z-[60]"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={isScrolled ? 'text-brand-text' : 'text-white'} size={24} />
+            <X className="text-brand-text" size={24} />
           ) : (
-            <MenuIcon className={isScrolled ? 'text-brand-text' : 'text-white'} size={24} />
+            <MenuIcon className="text-white drop-shadow-md" size={24} />
           )}
         </button>
       </div>
