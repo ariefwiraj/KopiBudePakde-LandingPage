@@ -1,17 +1,75 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { X, Edit2, Upload, Loader2 } from 'lucide-react';
+import { useData } from '../context/DataContext';
 
-const Gallery = () => {
-  const images = [
-    "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1511920170033-f8396924c648?auto=format&fit=crop&q=80&w=600",
-    "https://images.unsplash.com/photo-1495474472204-51e443152d1b?auto=format&fit=crop&q=80&w=600"
-  ];
+const Gallery = ({ isAdmin }) => {
+  const { gallery, updateGalleryItem, addGalleryItem, removeGalleryItem, uploadImage } = useData();
+  const [uploading, setUploading] = useState(false);
+  const [pendingAction, setPendingAction] = useState(null); // { type: 'edit', index } or { type: 'add' }
+  const fileInputRef = useRef(null);
+
+  const handleFileSelect = async (e) => {
+    const file = e.target.files[0];
+    if (!file || !pendingAction) return;
+
+    setUploading(true);
+    const url = await uploadImage(file);
+    setUploading(false);
+
+    if (url) {
+      if (pendingAction.type === 'edit') {
+        updateGalleryItem(pendingAction.index, url);
+      } else if (pendingAction.type === 'add') {
+        addGalleryItem(url);
+      }
+    } else {
+      alert('Gagal mengupload gambar. Silakan coba lagi.');
+    }
+
+    setPendingAction(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const triggerEditUpload = (index) => {
+    if (!isAdmin) return;
+    setPendingAction({ type: 'edit', index });
+    fileInputRef.current?.click();
+  };
+
+  const triggerAddUpload = () => {
+    if (!isAdmin) return;
+    setPendingAction({ type: 'add' });
+    fileInputRef.current?.click();
+  };
+
+  const handleDeletePhoto = (index) => {
+    if (!isAdmin) return;
+    if (window.confirm('Yakin hapus foto ini dari galeri?')) {
+      removeGalleryItem(index);
+    }
+  };
 
   return (
     <section id="gallery" className="py-24 bg-brand-bgMain">
+      {/* Hidden file input */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileSelect}
+        accept="image/*"
+        className="hidden"
+      />
+
+      {/* Upload overlay */}
+      {uploading && (
+        <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center">
+          <div className="bg-white rounded-2xl p-8 flex flex-col items-center gap-4 shadow-2xl">
+            <Loader2 size={40} className="animate-spin text-brand-primary" />
+            <p className="font-bold text-brand-text">Mengupload gambar...</p>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
@@ -23,13 +81,32 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {images.map((src, index) => (
+          {gallery.map((src, index) => (
             <div 
               key={index} 
-              className={`overflow-hidden rounded-2xl shadow-sm hover:shadow-lg transition-all group ${
+              className={`relative overflow-hidden rounded-2xl shadow-sm hover:shadow-lg transition-all group ${
                 index === 0 || index === 3 ? 'row-span-2' : ''
               }`}
             >
+              {isAdmin && (
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity z-20 flex items-center justify-center gap-4">
+                   <button 
+                     onClick={() => triggerEditUpload(index)} 
+                     className="bg-white text-brand-text p-3 rounded-full hover:bg-brand-primary hover:text-white shadow-md transition-colors"
+                     title="Upload Gambar Baru"
+                   >
+                     <Upload size={18} />
+                   </button>
+                   <button 
+                     onClick={() => handleDeletePhoto(index)} 
+                     className="bg-white text-red-500 p-3 rounded-full hover:bg-red-500 hover:text-white shadow-md transition-colors"
+                     title="Hapus Gambar"
+                   >
+                     <X size={18} />
+                   </button>
+                </div>
+              )}
+
               <img 
                 src={src} 
                 alt={`Kopi Bude Pakde Ambience ${index + 1}`}
@@ -38,6 +115,17 @@ const Gallery = () => {
               />
             </div>
           ))}
+          
+          {isAdmin && (
+             <button 
+                onClick={triggerAddUpload}
+                className="w-full aspect-square md:aspect-auto min-h-48 flex flex-col items-center justify-center gap-3 border-2 border-dashed border-gray-300 rounded-2xl text-brand-muted hover:text-brand-primary hover:border-brand-primary hover:bg-brand-primary/5 transition-all"
+             >
+                <Upload size={32} className="opacity-70" />
+                <span className="font-bold opacity-70">Upload Foto</span>
+             </button>
+          )}
+
         </div>
       </div>
     </section>
