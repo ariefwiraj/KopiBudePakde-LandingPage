@@ -21,7 +21,7 @@ const Footer = () => {
               <li><a href="#about" className="text-brand-bgMain/70 hover:text-white transition-colors block">Tentang Kami</a></li>
               <li><a href="#menu" className="text-brand-bgMain/70 hover:text-white transition-colors block">Menu Andalan</a></li>
               <li><a href="#location" className="text-brand-bgMain/70 hover:text-white transition-colors block">Lokasi Kedai</a></li>
-              <li><a href="#hero" className="text-brand-bgMain/70 hover:text-white transition-colors block">Pesan Online</a></li>
+              <li><a href="#order" className="text-brand-bgMain/70 hover:text-white transition-colors block">Pesan Online</a></li>
             </ul>
           </div>
 

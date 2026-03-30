@@ -49,7 +49,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#hero"
+            href="#order"
             className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all transform hover:-translate-y-0.5 ${
               isScrolled 
                 ? 'bg-white text-brand-text hover:bg-gray-100 shadow-md' 
@@ -90,7 +90,7 @@ const Navbar = () => {
           </a>
         ))}
         <a
-          href="#hero"
+          href="#order"
           onClick={() => setIsMobileMenuOpen(false)}
           className="mt-4 w-full py-3 bg-brand-primary text-white text-center rounded-xl font-bold text-lg hover:bg-brand-hover transition-colors shadow-lg shadow-brand-primary/20"
         >

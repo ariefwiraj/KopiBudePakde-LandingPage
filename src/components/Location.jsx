@@ -36,8 +36,8 @@ const Location = () => {
                 <div>
                   <h4 className="font-bold text-lg text-brand-text mb-1">Alamat Kedai</h4>
                   <p className="text-brand-muted leading-relaxed">
-                    Jl. Kopi Harapan No. 45, Duren Sawit,<br />
-                    Jakarta Timur, 13440
+                    Jl. Kwini No.25a, RT.5/RW.3, Balekambang, Kec. Kramat jati,<br />
+                    Jakarta Timur, 13530
                   </p>
                 </div>
               </div>
@@ -49,8 +49,7 @@ const Location = () => {
                 <div>
                   <h4 className="font-bold text-lg text-brand-text mb-1">Jam Operasional</h4>
                   <p className="text-brand-muted">
-                    Senin - Kamis : 10.00 - 22.00<br />
-                    Jumat - Minggu : 08.00 - 23.00
+                    Senin - Minggu : 09.00 - 22.00<br />
                   </p>
                 </div>
               </div>

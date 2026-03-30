@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronDown, ShoppingBag } from 'lucide-react';
-import fotobg from 'D:/Coding/KopiBudePakde-LandingPage/src/assets/bg-kopi2.jpg';
-import grabfoodLogo from '../assets/grabfood.png'; 
+import fotobg from '../assets/bg-kopi2.jpg';
+import grabfoodLogo from '../assets/grabfood.png';
 import gofoodLogo from '../assets/gofood-white.svg'; // <--- Aturan React: Import gambar di atas dulu
 // import grabfoodLogo from '../assets/grabfood.png'; // <--- Hapus // di depan jika file grabfood sudah ada di folder assets
 const order = () => {
@@ -11,7 +11,7 @@ const order = () => {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${fotobg})` }}
-        // style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000")' }}
+      // style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000")' }}
       ></div>
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1a110e]/90"></div>
 
@@ -29,21 +29,23 @@ const order = () => {
         </p>
 
         {/* Order Online Section */}
-        <div id="order" className="mt-8 flex flex-col items-center justify-center">
-          <p className="text-lg md:text-xl font-bold text-white tracking-widest uppercase mb-6 drop-shadow-md">
+        <div className="mt-8 flex flex-col items-center justify-center">
+          <p className="text-lg md:text-xl font-bold text-white tracking-widest mb-6 translate-y-13 drop-shadow-md">
             Pesan Online
           </p>
-          
-          <div className="flex flex-row items-center justify-center gap-6">
+
+          <div className="flex flex-row items-center justify-center gap-6 -mt-2">
             {/* Tombol GoFood */}
             <a
-              href="#"
-              className="block w-24 h-24 md:w-32 md:h-32 transition-all duration-300 transform hover:-translate-y-3 hover:scale-105 drop-shadow-2xl"
+              href="https://gofood.link/a/xTo29Ds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-24 h-24 md:w-32 md:h-32 transition-all duration-300 transform hover:-translate-y-3 hover:scale-105 drop-shadow-2xl mt-2"
               title="Pesan via GoFood"
             >
-              <img 
+              <img
                 src={gofoodLogo}
-                alt="Gofood Logo" 
+                alt="Gofood Logo"
                 className="w-full h-full object-contain"
               />
             </a>
@@ -51,12 +53,14 @@ const order = () => {
             {/* Tombol GrabFood */}
             <a
               href="#"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block w-24 h-24 md:w-32 md:h-32 transition-all duration-300 transform hover:-translate-y-3 hover:scale-105 drop-shadow-2xl"
               title="Pesan via GrabFood"
             >
-              <img 
-                src={grabfoodLogo} 
-                alt="GrabFood Logo" 
+              <img
+                src={grabfoodLogo}
+                alt="GrabFood Logo"
                 className="w-full h-full object-contain"
               />
             </a>
