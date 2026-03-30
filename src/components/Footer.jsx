@@ -6,14 +6,21 @@ const Footer = () => {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           
-          <div className="col-span-1 md:col-span-1 border-b md:border-b-0 border-white/10 pb-8 md:pb-0">
-            <a href="#" className="text-2xl font-bold tracking-tighter text-white mb-4 block inline-block">
-              KOPI<span className="text-brand-primary">BUDE</span>PAKDE
-            </a>
-            <p className="text-brand-bgMain/70 mb-6 leading-relaxed">
-              Ruang singgah yang nyaman di tengah padatnya hari. Selalu ada kopi enak untuk menemanimu.
-            </p>
-          </div>
+<div className="col-span-1 md:col-span-1 border-b md:border-b-0 border-white/10 pb-8 md:pb-0">
+  {/* Bagian Link dengan Flex Column agar teks bertumpuk */}
+  <a href="#" className="flex flex-col items-start font-serif font-bold text-white drop-shadow-md hover:opacity-90 transition-opacity mb-10">
+    <span className="text-xl md:text-2xl tracking-[0.15em] leading-tight">
+      KOPI
+    </span>
+    <span className="text-xl md:text-2xl tracking-wide leading-none">
+      BUDE <span className="text-brand-primary">PAKDE</span>
+    </span>
+  </a>
+
+  <p className="text-brand-bgMain/70 mb-6 leading-relaxed">
+    Ruang singgah yang nyaman di tengah padatnya hari. Selalu ada kopi enak untuk menemanimu.
+  </p>
+</div>
 
           <div className="col-span-1">
             <h4 className="font-bold text-lg text-white mb-6 uppercase tracking-wider">Tautan Cepat</h4>
