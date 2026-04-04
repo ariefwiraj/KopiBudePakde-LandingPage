@@ -71,7 +71,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
           
           <div className="mt-6 text-center">
              <a href="/" className="text-brand-muted hover:text-brand-primary text-sm font-medium transition-colors">
-               ← Kembali ke Beraanda
+               ← Kembali ke Beranda
              </a>
           </div>
         </form>
