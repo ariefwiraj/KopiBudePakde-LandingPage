@@ -6,29 +6,29 @@ const About = () => {
     {
       icon: <Coffee size={32} className="text-brand-primary" />,
       title: 'Biji Kopi Pilihan',
-      desc: 'Disangrai dengan metode pas untuk menghasilkan aroma dan rasa terbaik di kelasnya.',
+      desc: 'Menggunakan biji kopi pilihan dengan proses sangrai yang pas, menghasilkan rasa yang seimbang dan konsisten.',
     },
     {
       icon: <Wifi size={32} className="text-brand-primary" />,
       title: 'Nyaman & Gesit',
-      desc: 'WiFi ngebut dan colokan di setiap sudut. Cocok untuk work from cafe atau tugas nugas.',
+      desc: 'Suasana yang nyaman untuk berlama-lama, dilengkapi WiFi lancar dan colokan yang mudah dijangkau.',
     },
     {
       icon: <Wallet size={32} className="text-brand-primary" />,
       title: 'Harga Bersahabat',
-      desc: 'Nongkrong premium gak perlu bikin kantong jebol. Harga mulai dari 8K aja.',
+      desc: 'Nikmati kopi enak tanpa perlu khawatir soal harga. Mulai dari 8K, tetap ramah di kantong.',
     },
   ];
 
   return (
-    <section id="about" className="py-24 bg-brand-bgMain">
+    <section id="about" className="py-24 bg-brand-bgMain scroll-mt-20">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
             Lebih Dari Sekadar <span className="text-brand-primary">Tempat Ngopi</span>
           </h2>
           <p className="text-brand-muted text-lg">
-            Kopi Bude Pakde hadir sebagai ruang singgah yang nyaman di tengah padatnya Jakarta. Kami menyajikan racikan klasik dan modern yang pas di lidah dan kantong.
+            Kopi Bude Pakde hadir sebagai tempat singgah yang nyaman di tengah padatnya Jakarta. Tempat untuk rehat sejenak, ngobrol santai, atau sekadar menikmati kopi dengan suasana yang tenang.
           </p>
         </div>
 

@@ -25,12 +25,12 @@ const order = () => {
           <span className="text-brand-primary">Rasa Kerabat</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
-          Tempat nongkrong nyaman dengan sajian menu yang diracik sepenuh hati. Nikmati kehangatan di setiap tegukan.
+          Tempat nyaman untuk ngobrol dan menikmati kopi. Diracik dengan sepenuh hati, ben rasanya selalu pas di lidah.
         </p>
 
         {/* Order Online Section */}
         <div className="mt-8 flex flex-col items-center justify-center">
-          <p className="text-lg md:text-xl font-bold text-white tracking-widest mb-6 translate-y-13 drop-shadow-md">
+          <p className="text-lg md:text-xl font-bold text-white tracking-widest mb-6 translate-y-11 drop-shadow-md">
             Pesan Online
           </p>
 

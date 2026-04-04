@@ -3,7 +3,7 @@ import { MapPin, Clock, Navigation } from 'lucide-react';
 
 const Location = () => {
   return (
-    <section id="location" className="py-24 bg-brand-bgMain">
+    <section id="location" className="py-24 bg-brand-bgMain scroll-mt-38">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 grid grid-cols-1 lg:grid-cols-2">
           

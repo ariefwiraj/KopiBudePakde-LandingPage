@@ -50,7 +50,7 @@ const Gallery = ({ isAdmin }) => {
   };
 
   return (
-    <section id="gallery" className="py-24 bg-brand-bgMain">
+    <section id="gallery" className="py-24 bg-brand-bgMain scroll-mt-24">
       {/* Hidden file input */}
       <input
         type="file"
